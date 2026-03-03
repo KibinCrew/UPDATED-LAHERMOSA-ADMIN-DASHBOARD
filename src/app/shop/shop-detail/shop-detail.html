@@ -1,0 +1,59 @@
+<div class="shop-detail-container mx-6 md:mx-12 lg:mx-[120px] mb-20 lg:mb-[100px] mt-8 lg:mt-[50px]" *ngIf="product">
+    
+    <div class="flex justify-between items-center mb-6 lg:mb-10">
+        <div class="flex items-center gap-4">
+            <button (click)="goBack()" class="back-btn shrink-0">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <div class="path flex gap-[5px] items-center text-xs md:text-[15px]">
+                <p class="text-gray-400">Shop</p> <i class="fa-solid fa-circle fa-2xs" style="color: #6F0E35"></i>
+                <p class="font-bold truncate max-w-[150px] md:max-w-none" style="color:#6F0E35">{{ product.name }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex flex-col lg:flex-row gap-10 lg:justify-between items-center ">
+        
+        <div class="detail-frame bg-[#CDA4B5] h-[700px] w-full lg:w-[50%] flex items-center justify-center overflow-hidden">
+            <img [src]="product.image" [alt]="product.name" class="w-[90%] h-[90%] object-contain drop-shadow-2xl">
+        </div>
+
+        <div class="detail-info w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left">
+            <h1 class="text-6xl md:text-5xl lg:text-7xl xl:text-[100px] text-[#6F0E35] font-serif leading-tight">
+                {{ product.name }}
+            </h1>
+            
+            <p class="price-info text-2xl md:text-[30px] font-bold text-black mt-4">
+                {{ product.price }}
+            </p>
+            
+            <div class="description mt-6 lg:mt-10">
+                <p class="text-gray-500 font-sans leading-relaxed text-sm md:text-base max-w-xl mx-auto lg:mx-0">
+                    {{ product.description }}
+                </p>
+            </div>
+
+            <div class="contact-section mt-8 lg:mt-10">
+                <button 
+                    routerLink="/contact" 
+                    class="inquire-btn flex items-center justify-center gap-3 bg-[#CDA4B5] py-3 text-white md:py-2 lg:py-2 text-xl md:text-[1.5rem] cursor-pointer font-bold w-full">
+                    Inquire Now
+                </button>
+
+                <div class="flex flex-col items-center lg:items-start gap-6 mt-8 lg:mt-10">
+                    <div class="flex items-center gap-4">
+                        <i class="fa-solid fa-phone text-[#6F0E35]"></i>
+                        <p class="text-gray-700 font-sans font-semibold text-sm md:text-base">+63 912 345 6789</p>
+                    </div>
+
+                    <button 
+                        routerLink="/contact" 
+                        class="flex items-center justify-center gap-3 bg-[#6F0E35] text-white py-4 px-8 w-full sm:w-fit hover:bg-[#480935] transition-all rounded-sm uppercase tracking-widest text-xs md:text-sm font-bold cursor-pointer">
+                        <i class="fa-solid fa-envelope"></i>
+                        Email Us
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

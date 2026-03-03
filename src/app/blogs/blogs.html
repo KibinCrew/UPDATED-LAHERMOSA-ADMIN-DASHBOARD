@@ -1,0 +1,92 @@
+<section class="blog-section" aria-labelledby="main-blog-title">
+    <div class="blog-container mt-[50px] mx-[120px] responsive-container">
+        <div class="path flex gap-[5px] items-center text-[15px]">
+            <p class="text-gray-400">Home</p>
+            <i class="fa-solid fa-circle fa-2xs" style="color: #6F0E35"></i>
+            <p class="font-bold" style="color:#6F0E35">Blogs</p>
+        </div>
+
+        <div class="left-caption text-center lg:text-left">
+            <h1 id="main-blog-title" class="text-[200px] leading-[.8] mt-4 responsive-h1">Blogs</h1>
+            <p class="text-[15px] lg:max-w-[50%] responsive-text">You’ll love it for the inspiring stories, helpful tips, and floral trends. They’ll love it for the beauty, creativity, and little moments of joy it adds to their day.</p>
+        </div>
+
+        <div class="right-caption text-center mt-7 lg:mt-0 lg:text-end flex flex-col gap-[20px] lg:max-w-[40%] ml-auto responsive-right">
+            <h2 class="text-[55px] mt-4 text-center lg:text-start leading-[80%] responsive-h2">Where floral inspiration feels easy</h2>
+            <p class="text-[15px]">Our blog brings you curated flower guides, seasonal trends, and gentle inspiration to help you celebrate life’s moments with natural beauty.</p>
+        </div>
+        
+        <div class="center-caption text-center mt-30 responsive-center">
+            <h2 class="text-[70px] font-bold responsive-h2-large">Discover our latest news</h2>
+            <p class="text-[15px] mb-8">Discover the beauty that sets us apart. From handpicked blooms to heartfelt arrangements, we take pride in every petal we deliver.</p>
+        </div>
+    </div>
+
+    <div class="articles-container mx-[120px] mt-[100px] flex responsive-articles-header">
+        <div class="left-article flex items-center gap-[10px] flex-1">
+            <h2 class="text-[40px] whitespace-nowrap">Stories Bloom Here</h2>
+            <div class="h-[2px] bg-gray-300 flex-1 mx-6"></div>
+        </div>
+
+        <div class="right-article flex items-center gap-[10px] w-1/4 sidebar-header-desktop">
+            <h2 class="text-[40px] whitespace-nowrap">Featured</h2>
+            <div class="h-[2px] bg-gray-300 w-full ml-6"></div>
+        </div>
+    </div>
+
+    <div class="mx-[120px] mt-[20px] flex gap-[50px] main-content-wrapper">
+        <div class="w-3/4 left-column">
+            <div *ngIf="isLoading" class="flex flex-col items-center justify-center py-20">
+                <div class="animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-[#6F0E35]"></div>
+                <p class="text-[#6F0E35] mt-4 font-serif italic">Gathering our stories...</p>
+            </div>
+
+            <div *ngIf="!isLoading && blogPosts.length > 0" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 responsive-grid animate-in fade-in duration-700">
+                <article *ngFor="let article of blogPosts" [routerLink]="['/blogs', article._id || article.id]"
+                    class="group rounded-2xl overflow-hidden shadow-lg relative transition duration-500 hover:shadow-2xl cursor-pointer responsive-card">
+                    <img [src]="getImageUrl(article.imageUrl)" [alt]="article.altText || ''" 
+                         class="w-full h-[420px] object-cover transition duration-500 group-hover:scale-110"
+                         onerror="this.src='https://placehold.co/400x600?text=La+Hermosa'">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40"></div>
+                    <div class="card-details absolute bottom-0 p-6 text-white bg-gradient-to-t from-black/80 to-transparent w-full">
+                        <h3 class="text-[30px] leading-tight">{{ article.title }}</h3>
+                        <p class="text-xs">{{ article.createdAt | date:'MM/dd/yyyy' }}</p>
+                        <p class="text-sm mt-2 opacity-90 line-clamp-2">{{ article.content }}</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <div class="w-1/4 space-y-10 sidebar-column">
+            <div *ngIf="!isLoading && featuredPosts.length > 0" class="space-y-6 animate-in fade-in duration-700">
+                <div *ngFor="let item of featuredPosts" [routerLink]="['/blogs', item._id || item.id]"
+                     class="group flex gap-4 p-3 rounded-xl transition hover:bg-gray-100 cursor-pointer">
+                    <img [src]="getImageUrl(item.imageUrl)" [alt]="item.altText || ''" 
+                         class="w-20 h-20 object-cover rounded-xl shadow-sm">
+                    <div>
+                        <p class="text-xs text-gray-400">{{ item.createdAt | date:'MMMM d, y' }}</p>
+                        <p class="font-medium text-sm line-clamp-2">{{ item.title }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="!isLoading && latestPosts.length > 0" class="animate-in fade-in duration-700">
+                <div class="right-article flex items-center gap-[10px] mb-6">
+                    <h2 class="text-[40px] whitespace-nowrap">Latest</h2>
+                    <div class="h-[2px] bg-gray-300 w-full ml-6"></div>
+                </div>
+                <div class="space-y-6">
+                    <div *ngFor="let item of latestPosts" [routerLink]="['/blogs', item._id || item.id]"
+                         class="flex gap-4 group cursor-pointer p-3 rounded-xl transition hover:bg-gray-100">
+                        <img [src]="getImageUrl(item.imageUrl)" [alt]="item.altText || ''" 
+                             class="w-20 h-20 object-cover rounded-xl">
+                        <div>
+                            <p class="text-xs text-gray-400">{{ item.createdAt | date:'MMMM d, y' }}</p>
+                            <p class="font-medium text-sm line-clamp-2">{{ item.title }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

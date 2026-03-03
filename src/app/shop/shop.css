@@ -1,0 +1,98 @@
+/* SHOP STYLES */
+
+/* HERO SECTION STYLES */
+/* INDICATOR STYLES */
+.path {
+    font-family: "Poppins";
+}
+/* HEADER STYLES */
+#shop-header{
+  font-family: 'Allogist';
+  line-height: 100%;
+}
+
+/* FILTERS STYLES */
+.filter-images img{
+  height: 120px;
+  width: 255px;
+}
+
+.filter-text{
+  font-family: 'Allogist';
+}
+
+.filter-text:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#subtext-filter{
+  max-width: 600px;
+  color: #A3A2A2;
+  font-family: 'Poppins';
+  font-size: 1rem;
+  line-height: 125%;
+}
+
+.category-dropdown {
+  font-family: 'Poppins';
+  color: #6F0E35;
+  font-weight: bold;
+}
+#category-filter {
+  width: 100%;
+}
+/* MAIN SHOP STYLES */
+
+.main-img-container{
+  background-color: #CDA4B5;
+  height: 800px;
+  align-items: center;
+  border-top-left-radius: 380px;
+  border-top-right-radius: 380px;
+}
+
+.flower-frame{
+  border: 3px solid #6F0E35;
+  border-top-left-radius: 250px;
+  border-top-right-radius: 250px;
+  height: 350px;
+  max-width: 400px;
+}
+
+.right-imgs{
+  width: 500px;
+  height: 350px;
+  object-fit: contain;
+}
+
+.flower-info, .flower-info-2{
+  color: #6F0E35;
+  font-family: 'Poppins';
+  margin-top: 10px;
+}
+
+.flower-price {
+  font-weight: bold;
+}
+
+/* FLOWER COLLETION STYLES */
+.collection-frame{
+  background-color: #CDA4B5;
+  height: 350px;
+}
+
+.collection-img{
+  width: 500px;
+  height: 350px;
+  object-fit: contain;
+}
+
+.right-imgs:hover{
+  transform: scale(1.05);
+}
+
+.right-imgs {
+  transition-property: transform;
+  transition-duration: 300ms;
+}

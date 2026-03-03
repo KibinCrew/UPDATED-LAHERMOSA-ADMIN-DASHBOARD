@@ -1,0 +1,48 @@
+* {
+    overflow-x: hidden;
+}
+
+.detail-frame {
+    background-color: #CDA4B5;
+    /* Optional: Add a subtle shadow to make the rounded card pop */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-radius: 400px 400px 0 0;
+}
+
+.back-btn {
+    background-color: #CDA4B5;
+    color: var(--primary-color);
+    padding: 5px 7px;
+    border-radius: 100%;
+    transition: all 0.3s ease;
+}
+.back-btn:hover {
+    background-color: #6F0E35;
+    color: white;
+}
+
+h1 {
+    font-family: 'Allogist', serif;
+}
+
+.price-info {
+    font-family: 'King and Queen', serif;
+}
+
+.inquire-btn {
+    transition: all 0.3s ease;
+    width: 100%;
+    border-radius: 400px;
+    border: 2px solid transparent;
+    text-transform: uppercase;
+}
+
+.inquire-btn:hover {
+    background-color: transparent;
+    color: #CDA4B5;
+    border-color: #CDA4B5;
+} 
+
+.path, .description p, .contact-section p, button {
+    font-family: 'Poppins', sans-serif;
+}

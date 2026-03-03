@@ -1,0 +1,148 @@
+<body>
+    <div class="shop-container px-6 lg:px-[120px]">
+        <!-- PAGE INDICATOR -->
+        <div class="path flex gap-[5px] items-center text-xs lg:text-[15px] mt-[50px]">
+            <p class = "text-gray-400">Home</p>
+            <i class="fa-solid fa-circle fa-2xs" style="color: #6F0E35"></i>
+            <p class="font-bold" style="color:#6F0E35">Shop</p>
+        </div>
+
+        <!-- HERO SECTION -->
+    <div class="flex flex-col xl:flex-row lg:justify-between gap-10">
+        <div class="text-center lg:text-left"> 
+            <h1 id="shop-header" class=" text-9xl xl:text-[200px] text-[#6F0E35]">Flowers</h1>
+            <div id="subtext-filter" class="mx-auto lg:mx-0">
+                <p>We crafted a flower shop experience that makes every gesture feel effortless yet unforgettable. From spontaneous surprises to grand occasions, Lahermosa elevates the way you give- and receive flowers — in just a few simple steps.</p>
+            </div>
+        </div>
+
+        <!-- FILTERS -->
+        <div class="filter-section">
+            <div class="category-dropdown block md:hidden lg:hidden">
+                <label for="category-filter" class="block text-lg font-semibold text-[#6F0E35] mb-2">Category</label>
+                <select 
+                id="category-filter"
+                (change)="onDropdownChange($event)"
+                class="p-3 border-2 border-[#6F0E35] rounded-lg bg-[#FEF6FE] text-[#6F0E35] font-bold focus:outline-none"
+                >
+                <option value="All" [selected]="selectedCategory === 'All'">All</option>
+                <option value="Bouquets" [selected]="selectedCategory === 'Bouquets'">Bouquets</option>
+                <option value="Flowers" [selected]="selectedCategory === 'Flowers'">Flowers</option>
+                <option value="Arrangements" [selected]="selectedCategory === 'Arrangements'">Arrangements</option>
+                </select>
+            </div>
+
+            <div class="hidden gap-6 lg:flex md:flex">
+                <div class="filter-images cursor-pointer" (click)="filterCategory('All')"> 
+                    <img src="assets/images/all.jpg" alt="All Filter" class="h-[120px] w-[225px] object-cover"> 
+                    <div class="inline-block">
+                        <p class="filter-text text-[#6F0E35] text-[30px] mt-2 transition-all"
+                        [class.underline]="selectedCategory === 'All'"
+                        [class.border-[#6F0E35]]="selectedCategory === 'All'">
+                        All
+                        </p>
+                    </div>
+                </div>
+
+                <div class="filter-images cursor-pointer" (click)="filterCategory('Bouquets')"> 
+                    <img src="assets/images/blogimage3.jpg" alt="Bouquets Filter" class="h-[120px] w-[225px] object-cover"> 
+                    <div class="inline-block">
+                    <p class="filter-text text-[#6F0E35] text-[30px] mt-2 transition-all"
+                    [class.underline]="selectedCategory === 'Bouquets'"
+                    [class.border-[#6F0E35]]="selectedCategory === 'Bouquets'">
+                    Bouquets
+                    </p>
+                </div> 
+                </div>
+
+                <div class="filter-images cursor-pointer" (click)="filterCategory('Flowers')"> 
+                    <img src="assets/images/blogimage1.jpg" alt= "Flowers Filter" class="h-[120px] w-[225px] object-cover"> 
+                    <p class="filter-text text-[#6F0E35] text-[30px] mt-2 transition-all"
+                    [class.underline]="selectedCategory === 'Flowers'"
+                    [class.border-[#6F0E35]]="selectedCategory === 'Flowers'">
+                    Flowers
+                    </p>
+                </div>
+
+                <div class="filter-images cursor-pointer" (click)="filterCategory('Arrangements')"> 
+                    <img src="assets/images/blogimage2.jpg" alt="Arranegments Filter" class="h-[120px] w-[225px] object-cover"> 
+                    <p class="filter-text text-[#6F0E35] text-[30px] mt-2 transition-all"
+                    [class.underline]="selectedCategory === 'Arrangements'"
+                    [class.border-[#6F0E35]]="selectedCategory === 'Arrangements'">
+                    Arrangements
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- MAIN SHOP BODY -->
+        <div id="flower-best-sellers " class="flex lg:flex-row gap-[40px] justify-center mt-20 items-center">
+            <div class="">
+                <img src="assets/images/f6.png" alt="12 PCS Red Roses Bouquet" class="main-img-container items-center mt-20 object-contain hidden lg:block">
+            </div>
+            <!-- RIGHT SIDE IMAGES -->
+            <div class="hidden gap-5 flex flex-col lg:flex">
+                <div class="right-img-wrap grid grid-cols-2 gap-6">
+                    <div class="right-img-container ">
+                        <div class="flower-frame">
+                            <img src="assets/images/f3.png" alt="1 Dozen of Imported Roses" class="right-imgs">
+                        </div>
+                        <div class="flower-info flex justify-between">
+                            <p class="flower-name">1 DOZ Imported Roses</p>
+                            <p class="flower-price">PHP 6000</p>
+                        </div>
+                    </div>
+                    <div class="right-img-container ">
+                        <div class="flower-frame">
+                            <img src="assets/images/f4.png" alt="Sunflower Bouquet Image" class="right-imgs">
+                        </div>
+                        <div class="flower-info flex justify-between">
+                            <p class="flower-name">Sunflower w/ Asst.Flower</p>
+                            <p class="flower-price">PHP 1500</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-img-wrap grid grid-cols-2 gap-6">
+                    <div class="right-img-container">
+                        <div class="flower-frame">
+                            <img src="assets/images/f7.png" alt="Bouquet Image" class="right-imgs">
+                        </div>
+                        <div class="flower-info flex justify-between">
+                            <p class="flower-name">3 DOZ Roses</p>
+                            <p class="flower-price">PHP 5000</p>
+                        </div>
+                    </div>
+                    <div class="right-img-container">
+                        <div class="flower-frame">
+                            <img src="assets/images/f8.png" alt="Bouquet Image" class="right-imgs">
+                        </div>
+                        <div class="flower-info flex justify-between">
+                            <p class="flower-name">2 DOZ Roses</p>
+                            <p class="flower-price">PHP 4000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAIN COLLETION -->
+        <div class="flower-collection grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mt-10 mb-20"> 
+            <div *ngFor="let item of filteredProducts" 
+                [routerLink]="['/shop', item.id]" 
+                class="collection-container cursor-pointer group w-full">
+                
+                <div class="collection-frame overflow-hidden bg-[#CDA4B5] h-[350px] flex items-center justify-center">
+                    <img [src]="item.image" 
+                        [alt]="item.name" 
+                        class="collection-img w-full h-full object-contain hover:scale-105 transition-transform duration-300">
+                </div>
+
+                <div class="flower-info flex justify-between mt-4 w-full">
+                    <p class="flower-name">{{ item.name }}</p>
+                    <p class="flower-price font-bold">{{ item.price }}</p>
+                </div>
+            </div>
+        </div>
+    </div> 
+</body>

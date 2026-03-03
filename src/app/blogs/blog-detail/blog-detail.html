@@ -1,0 +1,56 @@
+<div [innerHTML]="dynamicSchema"></div>
+
+<div *ngIf="blog" class="mx-[120px] px-6 py-12 animate-in fade-in slide-in-from-bottom-4 duration-700 blog-detail-container">
+ 
+   <div class="flex justify-between items-center mb-6 lg:mb-10">
+        <div class="flex items-center gap-4">
+            <button (click)="goBack()" class="back-btn shrink-0">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <div class="path flex gap-[5px] items-center text-xs md:text-[15px]">
+                <p class="text-gray-400">Shop</p> <i class="fa-solid fa-circle fa-2xs" style="color: #6F0E35"></i>
+                <p class="font-bold truncate max-w-[150px] md:max-w-none" style="color:#6F0E35">{{ blog.title }}</p>
+            </div>
+        </div>
+    </div>
+
+  <div class="main-image relative">
+    <img
+      [src]="getImageUrl(blog.imageUrl)"
+      [alt]="blog.altText || 'La Hermosa Blog Image'"
+      class="w-full h-[500px] object-cover mt-[20px] brightness-65 rounded-2xl responsive-img-height"
+      onerror="this.src='https://placehold.co/1200x500?text=Image+Not+Found'"
+    >
+    <h1 class="absolute text-center leading-[90%] w-full px-4 responsive-main-title">
+      {{ blog.title }}
+    </h1>
+   
+    <div class="blog-author flex flex-col md:flex-row lg:flex-row text-center md:justify-between lg:justify-between mt-[20px] text-gray-500 font-sans text-sm">
+        <p>Created By: <span class="font-bold text-[#6F0E35]">{{ blog.author || 'Admin' }}</span></p>
+        <p>Published On: <span class="font-bold text-[#6F0E35]">{{ blog.createdAt | date:'MMMM d, y' }}</span></p>
+    </div>
+  </div>
+
+  <div class="header1 flex flex-col gap-[20px] mt-[70px] responsive-section-mt">
+      <h1 class="text-[60px] text-center responsive-header-text">{{ blog.header1 }}</h1>
+      <div class="responsive-p-text whitespace-pre-wrap" [innerHTML]="blog.content"></div>
+  </div>
+
+  <div class="main-image">
+      <img
+        [src]="getImageUrl(blog.imageUrl2)"
+        [alt]="blog.altText2 || 'La Hermosa Secondary Image'"
+        class="w-full h-[500px] object-contain mt-[20px] responsive-img-height"
+        onerror="this.style.display='none'"
+      >
+  </div>
+
+  <div class="header3 flex flex-col gap-[20px] mt-[30px]">
+      <h1 class="responsive-header-text">{{ blog.header2 }}</h1>
+      <div class="responsive-p-text whitespace-pre-wrap" [innerHTML]="blog.content2"></div>
+  </div>
+</div>
+
+<div *ngIf="isLoading" class="h-screen w-full flex items-center justify-center">
+    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-[#6F0E35]"></div>
+</div>
