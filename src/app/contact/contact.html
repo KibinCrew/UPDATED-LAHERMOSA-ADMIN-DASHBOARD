@@ -1,0 +1,139 @@
+<div class="contact-page">
+  <div class="hero-section">
+    <div class="hero-content">
+      <div class="path flex gap-[5px] items-center text-[15px]">
+        <p class = "text-gray-400">Home</p>
+        <i class="fa-solid fa-circle fa-2xs" style="color: #6F0E35"></i>
+        <p class="font-bold" style="color:#6F0E35">Features</p>
+      </div>
+      
+      <h1 class="hero-title text-center lg:text-left">Contacts</h1>
+      
+      <p class="hero-description text-center lg:text-left">
+        Every meaningful moment begins with a connection. 
+        Reach out to Lahermosa for inquiries, custom requests, 
+        or collaborations — thoughtfully handled, beautifully 
+        simple.
+      </p>
+      
+      <div class="contact-info-wrapper">
+        <div class="contact-info-item area-address">
+          <h3 class="info-label">Address</h3>
+          <p class="info-text">
+            Unit C, Building Santa Barbara,<br>
+            Santa Rosario St. Angeles, 2009<br>
+            Pampanga
+          </p>
+        </div>
+        
+        <div class="contact-info-item area-phone">
+          <h3 class="info-label">Phone</h3>
+          <p class="info-text">+6919 829 8827</p>
+          <div class="social-icons">
+            <a href="https://web.facebook.com/lahermosaflowers" target="_blank"  class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://web.facebook.com/lahermosaflowers" target="_blank"  class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://web.facebook.com/lahermosaflowers" target="_blank"  class="social-icon"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        
+        <div class="contact-info-item area-email">
+          <h3 class="info-label">Email</h3>
+          <p class="info-text">info@lahermosa.com</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="hero-image">
+      <img src="assets/images/basket.png" alt="Flower Basket">
+    </div>
+  </div>
+  
+  <div class="get-in-touch-section">
+    <h2 class="section-title">Get In Touch</h2>
+    <p class="section-subtitle">
+      We'd love to hear from you. Whether it's a question, a request, or<br>
+      a special idea, reach out and we'll take care of the rest.
+    </p>
+    
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <input 
+            type="text" 
+            formControlName="name" 
+            placeholder="Name" 
+            class="form-input"
+          >
+        </div>
+        
+        <div class="form-group">
+          <input 
+            type="email" 
+            formControlName="email" 
+            placeholder="Email" 
+            class="form-input"
+          >
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <input 
+            type="text" 
+            formControlName="occasion" 
+            placeholder="Occasion" 
+            class="form-input"
+          >
+        </div>
+        
+        <div class="form-group">
+          <input 
+            type="text" 
+            formControlName="budget" 
+            placeholder="Budget" 
+            class="form-input"
+          >
+        </div>
+      </div>
+      
+      <div class="form-group full-width">
+        <textarea 
+          formControlName="message" 
+          placeholder="Message" 
+          class="form-textarea"
+          rows="6"
+        ></textarea>
+      </div>
+      
+      <div class="form-submit">
+        
+        <div *ngIf="submitStatus === 'success'" class="status-message success-msg">
+          <i class="fa-solid fa-circle-check"></i> Message sent successfully!
+        </div>
+
+        <div *ngIf="submitStatus === 'error'" class="status-message error-msg">
+          <i class="fa-solid fa-circle-exclamation"></i> Failed to send. Please try again.
+        </div>
+
+        <button 
+          type="submit" 
+          class="submit-button" 
+          [disabled]="contactForm.invalid || isSubmitting"
+        >
+          <span *ngIf="isSubmitting">
+            <i class="fa-solid fa-spinner fa-spin"></i> Sending...
+          </span>
+          <span *ngIf="!isSubmitting">Send</span>
+        </button>
+      </div>
+    </form>
+  </div>
+  
+  <div class="map-section">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3851.446869806443!2d120.5888!3d15.1444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCsDA4JzM5LjgiTiAxMjDCsDM1JzE5LjciRQ!5e0!3m2!1sen!2sph!4v1620000000000!5m2!1sen!2sph"
+      allowfullscreen="" 
+      loading="lazy"
+    ></iframe>
+  </div>
+</div>

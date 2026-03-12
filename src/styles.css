@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+:root {
+    --primary-color: #6F0E35;
+    --page-color: #FEF6FE;
+    --black: #1E1E1E;
+}
+
+/* --- GLOBAL RESET --- */
+html, body {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden; 
+    background-color: var(--page-color);
+    margin: 0;
+}
+
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}

@@ -1,0 +1,152 @@
+<section class="hero-section">
+  <div class="hero-container flex items-center justify-between flex-col lg:flex-row px-6 lg:px-[120px] mt-12 lg:mt-[80px]">
+
+    <div class="hero-caption flex flex-col items-center text-center mt-15 gap-[30px] lg:text-left lg:gap-8 lg:mt-0 lg:items-start">
+      <h1 class = "text-5xl xl:text-[5.2rem]">
+        Beautiful <strong id="flowers-caption">flowers</strong> for beautiful moments
+      </h1>
+
+      <p class = "lg:max-w-[80%]">
+        We crafted a flower shop experience that makes every gesture feel effortless yet unforgettable.
+        From spontaneous surprises to grand occasions, Lahermosa elevates the way you give — and receive
+        flowers — in just a few simple steps.
+      </p>
+
+      <a routerLink="/shop" class="shop-btn">Order Now!</a>
+    </div>
+
+    <div class="hidden items-center gap-6 lg:flex xl:flex">
+      <div class="hero-image cursor-pointer lg:w-[450px] lg:h-[600px] xl:w-[650px] xl:h-[700px] ">
+        <img
+          [src]="images[currentImage].img"
+          alt="{{ images[currentImage].alt }}"
+        />
+      </div>
+      <div class="flex sm:flex-row gap-4 lg:flex-col">
+        <div
+          *ngFor="let img of images; let i = index"
+          (click)="selectImage(i)"
+          class="flower-thumb w-16 h-16 rounded-lg cursor-pointer
+          flex items-center justify-center
+          border-2 border-gray-300
+          hover:border-[#6F0E35]
+          transition-all duration-300"
+          [class.border-[#6F0E35]]="currentImage === i"
+          [class.border-gray-300]="currentImage !== i"
+        >
+          <img
+            [src]="img.img"
+            [alt]="img.alt"
+            class="w-12 h-12 object-contain"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="buoquet-section lg:my-[120px] mt-30">
+  <div class="buoquet-container mx-auto px-6 lg:px-[120px]">
+
+    <h1 class="buoquet-title text-center text-[3rem] md:text-[5rem] lg:text-[8rem] xl:text-[15rem]">
+      Bouquets
+    </h1>
+
+    <div class="buoquet-grid mobile-slider xl:-mt-45 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div
+        *ngFor="let buoquet of buoquets"
+        class="buoquet-card flex flex-col items-center gap-4"
+      >
+        <img
+          [src]="buoquet.image"
+          alt="{{ buoquet.alt }}"
+          class="w-full h-auto object-contain cursor-pointer hover:scale-105 transition-transform duration-300"
+        />
+        <div class="buoquet-info flex items-center justify-between w-full px-4">
+          <h2 class="buoquet-name font-medium">{{ buoquet.name }}</h2>
+          <span class="buoquet-price font-bold">{{ buoquet.price }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blogs my-12 md:my-[90px] lg:my-[200px]">
+  <div class="blogs-container mx-auto px-6 md:px-12 lg:px-[120px]">
+    <h1 class="font-medium text-3xl md:text-[48px] mb-8 border-b border-gray-200 pb-4">Latest Blogs</h1>
+    
+    <div *ngIf="isLoadingBlogs" class="flex flex-col items-center py-10">
+      <div class="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-[#6F0E35]"></div>
+      <p class="text-[#6F0E35] mt-4 italic">Loading latest stories...</p>
+    </div>
+
+    <div class="space-y-0" *ngIf="!isLoadingBlogs">
+      <div
+        *ngFor="let blog of blogs"
+        class="blog-entry border-b border-gray-200 py-7 flex flex-col md:flex-row justify-between gap-6 md:gap-10 group"
+      >
+        <div class="md:w-[100px] shrink-0">
+          <p class="text-sm md:text-[16px] text-gray-400 font-light">
+            {{ blog.createdAt | date:'dd.MM.yy' }}
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row flex-1 gap-6 md:gap-8 items-start sm:items-center">
+          <div class="w-full sm:w-[200px] h-[200px] sm:h-[150px] overflow-hidden rounded-sm shrink-0">
+            <img
+              [src]="getImageUrl(blog.imageUrl)"
+              [alt]="blog.altText || blog.title"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              onerror="this.src='https://placehold.co/400x300?text=La+Hermosa'"
+            />
+          </div>
+
+          <div class="blog-list flex flex-col">
+            <h2 class="font-bold text-2xl md:text-[40px] text-[#2D2D2D] leading-tight mb-2">
+              {{ blog.title }}
+            </h2>
+            <p class="font-light text-sm md:text-[15px] text-gray-500 line-clamp-2 max-w-xl">
+              {{ blog.content }}
+            </p>
+          </div>
+        </div>
+
+        <div class="shrink-0 flex justify-end">
+          <a [routerLink]="['/blogs', blog.slug || blog._id || blog.id]" class="transition-transform duration-300 hover:translate-x-2 block">
+            <svg class="w-12 h-6 md:w-[50px] md:h-6" viewBox="0 0 72 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 12H70M70 12L60 2M70 12L60 22" stroke="#512945" stroke-width="2"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="feature">
+  <div class="feature-container mx-[120px]">
+    <h1 class="section-title">Features</h1>
+    
+    <div class="feature-images mobile-slider">
+        <div class="overflow-hidden">
+          <img src="assets/images/gallery1.jpg" alt="Custom lighted flower bouquet arrangement" class="gallery-static hover:scale-105 transition-transform duration-300">
+        </div>
+        
+        <div *ngFor="let gallery of galleryImages" class="feature-card overflow-hidden">
+          <img [src]="gallery.images" [alt]="gallery.alt" class = "hover:scale-105 transition-transform duration-300"/>
+        </div>
+        
+        <div class="overflow-hidden">
+          <img src="assets/images/gallery5.jpg" alt="Balloon and flower arrangement for celebrations" class="gallery-static hover:scale-105 transition-transform duration-300">
+        </div>
+        
+    </div>
+    
+    <div class = "feature-caption">
+      <h2 class = "-mt-24 justify-end hidden lg:flex text-5xl lg:text-[10rem]">@LaHermosa.shop</h2>
+      <div class = "flex justify-end">
+        <a routerLink="/shop" class="see-more text-[32px] justify-end items-center transform transition duration-300 hover:translate-x-2">See More<span class = "no-underline"><i class="fa-solid fa-arrow-right fa-2xs"></i></span></a>
+      </div>
+    </div>
+  </div>
+</section>

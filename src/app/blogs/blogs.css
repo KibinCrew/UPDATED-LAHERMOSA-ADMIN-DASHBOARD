@@ -1,0 +1,46 @@
+/* --- 1. GLOBAL FONT RESTORATION --- */
+/* Apply these to the specific classes used in your HTML */
+
+.path { font-family: "Poppins", sans-serif; }
+
+.responsive-h1 { 
+    font-family: "Allogist", serif !important; 
+    color: #6F0E35; 
+}
+
+.left-caption p, .right-caption p, .center-caption p { 
+    font-family: "Poppins", sans-serif; 
+    color: #A3A2A2; 
+}
+
+.responsive-h2, 
+.responsive-h2-large, 
+.left-article h2, 
+.right-article h2 { 
+    font-family: "King and Queen", serif !important; 
+    color: #6F0E35; 
+}
+
+.card-details h3 { 
+    font-family: "Allogist", serif !important; 
+}
+
+.responsive-text, 
+.card-details p, 
+.sidebar-column p { 
+    font-family: "Poppins", sans-serif; 
+}
+
+/* --- 2. THE MEDIA QUERY (Mobile/Tablet Only) --- */
+@media (max-width: 1024px) {
+    /* Keep the layout logic we built, but don't touch font-family here 
+       unless you want a different font on mobile. */
+    .responsive-container, .articles-container, .main-content-wrapper {
+        margin-left: 20px !important;
+        margin-right: 20px !important;
+    }
+
+    .responsive-h1 { font-size: 80px !important; }
+    .main-content-wrapper { flex-direction: column-reverse !important; }
+    .left-column, .sidebar-column { width: 100% !important; }
+}

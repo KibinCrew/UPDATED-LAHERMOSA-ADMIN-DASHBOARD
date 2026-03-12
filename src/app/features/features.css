@@ -1,0 +1,197 @@
+/* --- Color Palette & Base Variables --- */
+:host {
+  --text-gray: #A3A2A2;
+  color: var(--primary-color);
+}
+
+/* --- Hero Section --- */
+.path {
+    font-family: "Poppins";
+}
+
+.main-title {
+  font-family: "Allogist";
+}
+
+p {
+    font-family: "Poppins";
+    color: #A3A2A2;
+}
+
+.hero-right h2 {
+    font-family: "King and Queen";
+}
+
+/* --- Services Section & Timeline --- */
+.services-container {
+  padding: 60px 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.section-heading {
+  margin-bottom: 100px;
+  text-align: center;
+  font-family: "King and Queen";
+}
+
+.services-timeline {
+  position: relative;
+  max-width: 95%;
+  margin: 0 auto;
+  padding-top: 40px;
+  overflow: visible;
+}
+
+.timeline-curve {
+  position: absolute;
+  top: -455px;
+  left: 50%;                 /* Start from the middle */
+  transform: translateX(-50%); /* Pull it back exactly half its own width */
+  width: 130%;               /* Set a fixed wide width for the arc */
+  height: 510px;
+  border-bottom: 1.5px solid var(--primary-color);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.service-items {
+  justify-content: space-around;
+  position: relative;
+  z-index: 2;
+}
+
+.service-item h3 {
+  transform: translate(10px, 20px);
+  font-family: "Allogist";
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.service-item p {
+  transform: translate(10px, 10px);
+  font-family: "Poppins";
+  color: var(--text-gray);
+  margin-top: 10px;
+}
+
+.service-item-2 h3 {
+  transform: translate(10px, 60px);
+  font-family: "Allogist";
+}
+
+.service-item-2 p {
+  transform: translate(10px, 50px);
+  font-family: "Poppins";
+  color: var(--text-gray);
+}
+
+.dot1 {
+  width: 20px;
+  height: 20px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  transform: translate(100px, -35px);
+}
+
+.dot2 {
+  width: 20px;
+  height: 20px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  margin: 0 auto 20px; /* Keeps it centered initially */
+
+  transform: translate(0px, 5px); 
+}
+
+.dot3 {
+  width: 20px;
+  height: 20px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  transform: translate(100px, -30px);
+}
+
+/* --- Gallery Filters --- */
+.gallery-filters {
+  display: flex;
+  justify-content: flex-start;
+  gap: 30px;
+  margin-bottom: 30px;
+  padding: 0 5%;
+  font-family: "Poppins";
+}
+
+.filter {
+  cursor: pointer;
+  opacity: 0.5;
+  transition: 0.3s;
+  padding-bottom: 5px;
+  margin: 0;
+}
+
+.filter.active {
+  opacity: 1;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+/* --- Gallery Grid Layout --- */
+.gallery-grid {
+  gap: 15px;
+  padding: 0 5%;
+}
+
+.left-column, 
+.right-column {
+  gap: 15px;
+}
+
+/* --- Global Media Handling --- */
+.grid-item img, 
+.grid-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
+}
+
+/* --- Grid Item Specific Sizing --- */
+.item-tall {
+  grid-column: span 2;
+  height: 500px;
+}
+
+.item-small-square {
+  height: 200px;
+}
+
+.item-bottom-wide {
+  grid-column: span 2;
+  height: 150px;
+}
+
+.item-top-pair {
+  height: 180px;
+}
+
+.item-church-wide {
+  grid-column: span 2;
+  height: 250px;
+}
+
+.item-large-arch {
+  grid-column: span 2;
+  height: 415px;
+}
+
+/* --- Video Specific Views --- */
+.video-full-width {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.video-caption {
+  text-align: center;
+  margin-top: 15px;
+}

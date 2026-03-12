@@ -1,0 +1,43 @@
+:root {
+    --primary-color: #6F0E35;
+    --page-color: #FEF6FE;
+    --black: #1E1E1E;
+    --transition: all 0.5s ease;
+}
+
+* {
+    box-sizing: border-box;
+    overflow-x: hidden;
+    
+}
+
+@font-face {
+  font-family: "Aaron";
+  src: url("/assets/fonts/Aaron Script.otf") format("opentype");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("/assets/fonts/HelveticaNeueItalic.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Helvetica Neue Med";
+  src: url("/assets/fonts/HelveticaNeueMedium.otf") format("opentype");
+  font-weight: bolder;
+}
+
+@font-face {
+    font-family: "King and Queen";
+    src: url("/assets/fonts/fype-co-kingandqueendemo-regular.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: "Allogist";
+  src: url("/assets/fonts/Allogist Regular.ttf") format("truetype");
+}

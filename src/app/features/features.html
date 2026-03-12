@@ -1,0 +1,99 @@
+<section class="features-page">
+    <header class="hero-section px-6 lg:px-[120px] mt-">
+      <div class="path flex gap-[5px] items-center text-xs lg:text-[15px] mt-[50px]">
+        <p class = "text-gray-400">Home</p>
+        <i class="fa-solid fa-circle fa-2xs" style="color: #6F0E35"></i>
+        <p class="font-bold" style="color:#6F0E35">Features</p>
+    </div>
+    <div class="text-center lg:text-left mt">
+      <h1 class="main-title text-8xl lg:text-[200px]">Features</h1>
+      <p class = "text-[15px]">You’ll love it for the elegant blooms, thoughtful curation, and seamless ordering. <br>
+        They’ll love it for the joy, surprise, and beauty it brings to their day.</p>
+    </div>
+    <div class="hero-right items-center flex flex-col lg:items-end lg:mt-[30px]">
+      <h2 class=" text-5xl lg:text-[55px] text-center mt-10 lg:text-left lg:max-w-[40%] items-end leading-12">Surprisingly seamless flower gifting</h2>
+      <p class="text-[15px] mt-4 text-center lg:text-right lg:max-w-[40%]">
+        We crafted a flower shop experience that makes every gesture feel effortless yet unforgettable. From spontaneous surprises to grand occasions, La hermosa elevates the way you give and receive flowers — in just a few simple steps.
+      </p>
+    </div>
+  </header>
+
+  <section class="services-container mt-[100px]">
+    <h2 class="section-heading text-5xl lg:text-7xl">Our Floral Services</h2>
+    <div class="services-timeline">
+      <div class="hidden timeline-curve lg:block"></div>
+      <div class="service-items items-center flex flex-col lg:flex-row">
+        <div class="service-item text-center lg-text-left">
+          <div class="dot1 hidden lg:block"></div>
+          <h3>Event Floral Styling</h3>
+          <p>Planning something big? We do<br> weddings, birthdays, and corporate<br> events with style and grace.</p>
+        </div>
+        <div class="service-item-2 text-center">
+          <div class="dot2 hidden lg:block"></div>
+          <h3 class = "text-[2rem] font-bold">Curated Floral Collections</h3>
+          <p class = "mt-[10px]">Discover handcrafted arrangements<br> tailored for every mood and milestone.</p>
+        </div>
+        <div class="service-item mt-15 lg:mt-0">
+          <div class="dot3 hidden lg:block"></div>
+          <h3 class = "text-right">Personalized Message</h3>
+          <p class = "lg:text-right text-center">Add a heart-felt note with every<br> bouquet. We'll make sure your<br> message is delivered beautifully.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery-container mt-24 lg:mt-[200px] px-4 lg:px-[5%]">
+  <h2 class="section-heading text-5xl lg:text-[70px] text-center mb-10">Our Gallery</h2>
+  
+  <div class="gallery-filters flex gap-6 lg:gap-8 mb-8 overflow-x-auto whitespace-nowrap pb-2">
+    <span class="filter" [class.active]="selectedFilter === 'Images'" (click)="setFilter('Images')">Images</span>
+    <span class="filter" [class.active]="selectedFilter === 'Videos'" (click)="setFilter('Videos')">Videos</span>
+    <span class="filter" [class.active]="selectedFilter === 'All'" (click)="setFilter('All')">All</span>
+  </div>
+
+  <div class="gallery-grid grid grid-cols-1 lg:grid-cols-2 gap-4" *ngIf="selectedFilter === 'Images' || selectedFilter === 'All'">
+    
+    <div class="left-column grid grid-cols-2 gap-4">
+      <div class="grid-item item-tall col-span-2 lg:col-span-2">
+        <img src="assets/images/gallery1.jpg" alt="Girl with large bouquet">
+      </div>
+      <div class="grid-item item-small-square">
+        <img src="assets/images/gallery5.jpg" alt="Sunflower">
+      </div>
+      <div class="grid-item item-small-square">
+        <img src="assets/images/gallery5.jpg" alt="Sunflower">
+      </div>
+      <div class="grid-item item-bottom-wide col-span-2">
+        <img src="assets/images/gallery4.jpg" alt="Colorful flower strip">
+      </div>
+    </div>
+
+    <div class="right-column grid grid-cols-2 gap-4">
+      <div class="grid-item item-top-pair">
+        <img src="assets/images/gallery2.jpg" alt="Flower top left">
+      </div>
+      <div class="grid-item item-top-pair">
+        <img src="assets/images/gallery3.jpg" alt="Flower top right">
+      </div>
+      <div class="grid-item item-church-wide col-span-2">
+        <img src="assets/images/gallery4.jpg" alt="Church aisle">
+      </div>
+
+      <div class="grid-item item-large-arch col-span-2">
+        <img *ngIf="selectedFilter === 'Images'" src="assets/images/gallery6.jpg" alt="Pink floral arch">
+        <video *ngIf="selectedFilter === 'All'" controls poster="/image17.png" class="w-full h-full object-cover">
+          <source src="/video1.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <div class="video-grid w-full flex justify-center mt-10" *ngIf="selectedFilter === 'Videos'">
+    <div class="grid-item video-full-width w-full max-w-[1000px] aspect-video">
+      <video controls class="w-full h-full rounded-xl shadow-lg">
+        <source src="/video1.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+</section>
